@@ -3,7 +3,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import BeerInfo from "./pages/BeerInfo";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
