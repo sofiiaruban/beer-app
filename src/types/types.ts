@@ -64,7 +64,7 @@ export default interface HomeProps {
   beers?: Beer[];
   fetchData: (url: string) => Promise<Beer[]>;
 }
-export interface BeerCardProps {
+export default interface BeerCardProps {
   id: number;
   name: string;
   img: string;

@@ -2,7 +2,7 @@ import styles from "./Home.module.css";
 import BeerIcon from "../assets/beer-icon.svg";
 import HomeProps from "../types/types";
 
-const Home: React.FC<HomeProps> = (beers) => {
+const Home: React.FC<HomeProps> = ({ beers, fetchData }) => {
   return (
     <>
       <header className={styles.homeContainer}>
