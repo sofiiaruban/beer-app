@@ -60,3 +60,16 @@ export default interface Beer {
   brewers_tips: string;
   contributed_by: string;
 }
+export default interface HomeProps {
+  beers?: Beer[];
+  fetchData: (url: string) => Promise<Beer[]>;
+}
+export interface BeerCardProps {
+  id: number;
+  name: string;
+  img: string;
+  tagline: string;
+  brewedIn: string;
+  pH: number;
+  alcByVol: number;
+}
