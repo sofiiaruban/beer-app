@@ -1,4 +1,4 @@
-import BeerCardProps from "../types/types";
+import BeerCardProps from "../types/BeerCardProps";
 import styles from "./BeerCard.module.css";
 
 const BeerCard: React.FC<BeerCardProps> = ({

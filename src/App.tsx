@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import BeerInfo from "./pages/BeerInfo";
-import Beer from "./types/types";
+import Beer from "./types/Beer";
 import { useQuery } from "react-query";
 
 const fetchData = async (url: string): Promise<Array<Beer>> => {

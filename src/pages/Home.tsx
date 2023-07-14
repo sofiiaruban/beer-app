@@ -1,6 +1,7 @@
 import styles from "./Home.module.css";
 import BeerIcon from "../assets/beer-icon.svg";
-import HomeProps from "../types/types";
+import HomeProps from "../types/HomeProps";
+import BeerCard from "../components/BeerCard";
 
 const Home: React.FC<HomeProps> = ({ beers, fetchData }) => {
   return (
@@ -16,7 +17,24 @@ const Home: React.FC<HomeProps> = ({ beers, fetchData }) => {
           />
         </h1>
       </header>
-      <main></main>
+      <main>
+        <ul>
+          {beers
+            ? beers.map((beer) => (
+                <li key={beer.id}>
+                  <BeerCard
+                    name={beer.name}
+                    img={beer.image_url}
+                    tagline={beer.tagline}
+                    brewedIn={beer.first_brewed}
+                    pH={beer.ph}
+                    alcByVol={beer.abv}
+                  />
+                </li>
+              ))
+            : null}
+        </ul>
+      </main>
     </>
   );
 };
