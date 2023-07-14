@@ -21,16 +21,15 @@ const Home: React.FC<HomeProps> = ({ beers, fetchData }) => {
         <ul className={styles.beerList}>
           {beers
             ? beers.map((beer) => (
-                <li key={beer.id} className={styles.beerItem}>
-                  <BeerCard
-                    name={beer.name}
-                    img={beer.image_url}
-                    tagline={beer.tagline}
-                    brewedIn={beer.first_brewed}
-                    pH={beer.ph}
-                    alcByVol={beer.abv}
-                  />
-                </li>
+                <BeerCard
+                  key={beer.id}
+                  name={beer.name}
+                  img={beer.image_url}
+                  tagline={beer.tagline}
+                  brewedIn={beer.first_brewed}
+                  pH={beer.ph}
+                  alcByVol={beer.abv}
+                />
               ))
             : null}
         </ul>

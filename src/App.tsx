@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import BeerInfo from "./pages/BeerInfo";
 import Beer from "./types/Beer";
 import { useQuery } from "react-query";
+import useStore from "./store/store";
+import { useEffect } from "react";
 
 const fetchData = async (url: string): Promise<Array<Beer>> => {
   const response = await fetch(url);
@@ -20,6 +22,14 @@ const App: React.FC = () => {
   } = useQuery<Array<Beer>>("beers", () =>
     fetchData(`${BASE_URL}?page=1&per_page=15`)
   );
+
+  const setBeers = useStore((state) => state.setBeers);
+
+  useEffect(() => {
+    if (beersData) {
+      setBeers(beersData);
+    }
+  }, [beersData, setBeers]);
 
   if (isLoadingBeers) return <div>Loading...</div>;
 
