@@ -1,6 +1,32 @@
-.beerCard {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border: 2px solid black;
+.beerCardImg {
+  width: 100%;
+  height: 60%;
+  margin: 0 auto;
+  object-fit: contain;
+}
+.BeerCardTitle {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-size: 20px;
+  line-height: 24px;
+  color: darkblue;
+}
+.BeerCardTagline {
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+  line-height: 20px;
+}
+.BeerCardBrewedIn {
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+  line-height: 20px;
+  font-weight: 600;
+}
+.BeerCardPH {
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+}
+.BeerCardABV {
+  margin-top: 0;
+  margin-bottom: 0.3rem;
 }

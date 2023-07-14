@@ -9,15 +9,18 @@ const BeerCard: React.FC<BeerCardProps> = ({
   pH,
   alcByVol,
 }) => {
+  const modifiedTagline = tagline.endsWith(".")
+    ? tagline.slice(0, -1)
+    : tagline;
   return (
-    <article className={styles.beerCard}>
-      <img src={img} alt="Beer" />
-      <h2>{name}</h2>
-      <p>{tagline}</p>
-      <p>Brewed in:{brewedIn}</p>
-      <h5>pH: {pH}</h5>
-      <h5>Abv: {alcByVol}</h5>
-    </article>
+    <>
+      <img src={img} alt="Beer" className={styles.beerCardImg} />
+      <h2 className={styles.BeerCardTitle}>{name}</h2>
+      <p className={styles.BeerCardTagline}>{modifiedTagline}</p>
+      <p className={styles.BeerCardBrewedIn}>Brewed in: {brewedIn}</p>
+      <h5 className={styles.BeerCardPH}>pH: {pH}</h5>
+      <h5 className={styles.BeerCardABV}>Abv: {alcByVol}</h5>
+    </>
   );
 };
 export default BeerCard;

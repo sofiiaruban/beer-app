@@ -18,10 +18,10 @@ const Home: React.FC<HomeProps> = ({ beers, fetchData }) => {
         </h1>
       </header>
       <main>
-        <ul>
+        <ul className={styles.beerList}>
           {beers
             ? beers.map((beer) => (
-                <li key={beer.id}>
+                <li key={beer.id} className={styles.beerItem}>
                   <BeerCard
                     name={beer.name}
                     img={beer.image_url}

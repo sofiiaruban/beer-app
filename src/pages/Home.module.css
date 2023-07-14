@@ -1,5 +1,5 @@
 .homeContainer {
-  margin: 2em;
+  margin: 2rem;
 }
 .homeTitle {
   text-transform: uppercase;
@@ -11,4 +11,27 @@
   position: absolute;
   padding-left: 0.3rem;
   bottom: 0.3rem;
+}
+
+.beerList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+.beerItem {
+  width: 300px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  transition: 500ms ease-in-out;
+}
+.beerItem:hover {
+  transform: scale(1.05);
 }
