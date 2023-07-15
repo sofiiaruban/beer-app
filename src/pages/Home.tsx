@@ -22,6 +22,7 @@ const Home: React.FC<HomeProps> = ({ beers }) => {
           {beers
             ? beers.map((beer) => (
                 <BeerCard
+                  id={beer.id}
                   key={beer.id}
                   name={beer.name}
                   img={beer.image_url}

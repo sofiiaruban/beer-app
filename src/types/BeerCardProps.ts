@@ -1,4 +1,5 @@
 export default interface BeerCardProps {
+  id: number;
   name: string;
   img: string;
   tagline: string;

@@ -3,8 +3,10 @@ import styles from "./BeerCard.module.css";
 import TrashCanImg from "../assets/trash-can-icon.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useStore from "../store/store";
 
 const BeerCard: React.FC<BeerCardProps> = ({
+  id,
   name,
   img,
   tagline,
@@ -23,8 +25,13 @@ const BeerCard: React.FC<BeerCardProps> = ({
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+  const setId = useStore((state) => state.setSelectedBeerId);
+
+  const handleClick = () => {
+    setId(id);
+  };
   return (
-    <Link to="/beerinfo" >
+    <Link to={`/beerinfo/${id}`} onClick={handleClick}>
       <li
         className={styles.beerCard}
         onMouseEnter={handleMouseEnter}
