@@ -16,7 +16,7 @@
 }
 .beerCardImg {
   width: 100%;
-  height: 60%;
+  height: 55%;
   margin: 0 auto;
   object-fit: contain;
 }
@@ -31,6 +31,8 @@
   margin-top: 0;
   margin-bottom: 0.3rem;
   line-height: 20px;
+  font-size: 16px;
+  font-style: italic;
 }
 .beerCardBrewedIn {
   margin-top: 0;

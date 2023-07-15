@@ -5,7 +5,11 @@ import Beer from "../types/Beer";
 const useStore = create<StoreStateProps>(
   (set: StoreApi<StoreStateProps>["setState"]) => ({
     beers: [],
+    selectedBeerId: null,
     setBeers: (beers: Beer[]) => set((state) => ({ ...state, beers })),
+    setSelectedBeerId: (id: number | null) => {
+      set((state) => ({ ...state, selectedBeerId: id }));
+    },
   })
 );
 

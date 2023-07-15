@@ -15,12 +15,14 @@ const fetchData = async (url: string): Promise<Array<Beer>> => {
 
 const App: React.FC = () => {
   const BASE_URL: string = import.meta.env.VITE_API_BASE_URL;
+  const BEERS_PER_PAGE: number = 15;
+
   const {
     isLoading: isLoadingBeers,
     error: errorBeers,
     data: beersData,
   } = useQuery<Array<Beer>>("beers", () =>
-    fetchData(`${BASE_URL}?page=1&per_page=15`)
+    fetchData(`${BASE_URL}?page=1&per_page=${BEERS_PER_PAGE}`)
   );
 
   const setBeers = useStore((state) => state.setBeers);
@@ -38,11 +40,8 @@ const App: React.FC = () => {
   return (
     <>
       <Routes>
-        <Route
-          path="/"
-          element={<Home beers={beersData} fetchData={fetchData} />}
-        />
-        <Route path="/beerinfo" element={<BeerInfo />} />
+        <Route path="/" element={<Home beers={beersData} />} />
+        <Route path="/beerinfo" element={<BeerInfo fetchData={fetchData} />} />
       </Routes>
     </>
   );
