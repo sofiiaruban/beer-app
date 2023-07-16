@@ -1,4 +1,3 @@
-//import DescriptionLists from "../components/DescriptionLists";
 import useStore from "../store/store";
 import Beer from "../types/Beer";
 import BeerInfoProps from "../types/BeerInfoProps";
@@ -20,10 +19,25 @@ const BeerInfo: React.FC<BeerInfoProps> = ({ fetchData }) => {
   if (errorBeer) return <div>Oops, something went wrong...</div>;
 
   return (
-    <>
-      {beerData && JSON.stringify(beerData)}
-    </>
+    <div>
+      {beerData ? (
+        <div>
+          <aside>
+            <img src={beerData[0].image_url} alt="Beer" />
+          </aside>
+          <main>
+            <h3>{beerData[0].name}</h3>
+            <p>Brewed in: {beerData[0].first_brewed}</p>
+            <p>{beerData[0].description}</p>
+          </main>
+        </div>
+      ) : null}
+    </div>
   );
 };
 export default BeerInfo;
 //  //<DescriptionLists data={beerData.ingredients, beerData.method } />
+//beerInfoContainer
+//<DescriptionLists
+//data={beerData && (beerData[0].ingredients, beerData[0].method)}
+///>
