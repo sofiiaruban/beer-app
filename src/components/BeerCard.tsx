@@ -31,27 +31,28 @@ const BeerCard: React.FC<BeerCardProps> = ({
     setId(id);
   };
   return (
-    <Link to={`/beerinfo/${id}`} onClick={handleClick}>
-      <li
-        className={styles.beerCard}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <img src={img} alt="Beer" className={styles.beerCardImg} />
-        <h2 className={styles.beerCardTitle}>{name}</h2>
-        <p className={styles.beerCardTagline}>{modifiedTagline}</p>
-        <p className={styles.beerCardBrewedIn}>Brewed in: {brewedIn}</p>
-        <h5 className={styles.beerCardPH}>pH: {pH}</h5>
-        <h5 className={styles.beerCardABV}>Abv: {alcByVol}</h5>
-        {isHovered ? (
-          <img
-            src={TrashCanImg}
-            alt="Trash Can"
-            className={styles.beerCardTrashCanIcon}
-          />
-        ) : null}
-      </li>
-    </Link>
+    <li
+      className={styles.beerCard}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <img src={img} alt="Beer" className={styles.beerCardImg} />
+      <h2 className={styles.beerCardTitle}>{name}</h2>
+      <p className={styles.beerCardTagline}>{modifiedTagline}</p>
+      <p className={styles.beerCardBrewedIn}>Brewed in: {brewedIn}</p>
+      <h5 className={styles.beerCardPH}>pH: {pH}</h5>
+      <h5 className={styles.beerCardABV}>ABV: {alcByVol}</h5>
+      {isHovered ? (
+        <img
+          src={TrashCanImg}
+          alt="Trash Can"
+          className={styles.beerCardTrashCanIcon}
+        />
+      ) : null}
+      <Link to={`/beerinfo/${id}`} onClick={handleClick}>
+        <button className={styles.beerCardBtn}>Read more</button>
+      </Link>
+    </li>
   );
 };
 export default BeerCard;
