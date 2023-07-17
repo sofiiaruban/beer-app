@@ -7,7 +7,7 @@ export default defineConfig({
   base: "/beer-app/",
   resolve: {
     alias: {
-      'react-router-dom': require.resolve('react-router-dom'),
+      "react-router-dom": require.resolve("react-router-dom"),
     },
   },
 });
