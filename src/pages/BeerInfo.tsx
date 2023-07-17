@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const BeerInfo: React.FC<BeerInfoProps> = ({ fetchData }) => {
   const BASE_URL: string = import.meta.env.VITE_API_BASE_URL;
-  const selectedBeerId = useStore.getState().selectedBeerId;
+  const selectedBeerId = useStore.getState().readMoreId;
   const {
     isLoading: isLoadingBeer,
     error: errorBeer,
@@ -29,7 +29,7 @@ const BeerInfo: React.FC<BeerInfoProps> = ({ fetchData }) => {
             <Link to="/">
               <img
                 src={BackBtn}
-                alt="arrow"
+                alt="Arrow"
                 className={styles.beerInfoBackBtn}
               />
             </Link>
@@ -60,8 +60,3 @@ const BeerInfo: React.FC<BeerInfoProps> = ({ fetchData }) => {
   );
 };
 export default BeerInfo;
-//  //<DescriptionLists data={beerData.ingredients, beerData.method } />
-//beerInfoContainer
-//<DescriptionLists
-//data={beerData && (beerData[0].ingredients, beerData[0].method)}
-///>

@@ -1,6 +1,5 @@
 import BeerCardProps from "../types/BeerCardProps";
 import styles from "./BeerCard.module.css";
-import TrashCanImg from "../assets/trash-can-icon.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useStore from "../store/store";
@@ -17,24 +16,26 @@ const BeerCard: React.FC<BeerCardProps> = ({
   const modifiedTagline = tagline.endsWith(".")
     ? tagline.slice(0, -1)
     : tagline;
-  const [isHovered, setIsHovered] = useState(false);
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
+  const [isSelected, setIsSelected] = useState(false);
+  const setSelectedCardIds = useStore((state) => state.setSelectedCardIds);
+  const selectedCardIds = useStore((state) => state.selectedCardIds);
+  const setId = useStore((state) => state.setReadMoreId);
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-  const setId = useStore((state) => state.setSelectedBeerId);
-
-  const handleClick = () => {
+  const handleClickReadMoreButton = () => {
     setId(id);
+  };
+  const handleClick = () => {
+    if (selectedCardIds.includes(id)) {
+      setSelectedCardIds(selectedCardIds.filter((cardId) => cardId !== id));
+    } else {
+      setSelectedCardIds([...selectedCardIds, id]);
+    }
+    setIsSelected(!isSelected);
   };
   return (
     <li
-      className={styles.beerCard}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      className={`${styles.beerCard} ${isSelected ? styles.selected : null}`}
+      onClick={handleClick}
     >
       <img src={img} alt="Beer" className={styles.beerCardImg} />
       <h2 className={styles.beerCardTitle}>{name}</h2>
@@ -42,14 +43,7 @@ const BeerCard: React.FC<BeerCardProps> = ({
       <p className={styles.beerCardBrewedIn}>Brewed in: {brewedIn}</p>
       <h5 className={styles.beerCardPH}>pH: {pH}</h5>
       <h5 className={styles.beerCardABV}>ABV: {alcByVol}</h5>
-      {isHovered ? (
-        <img
-          src={TrashCanImg}
-          alt="Trash Can"
-          className={styles.beerCardTrashCanIcon}
-        />
-      ) : null}
-      <Link to={`/beerinfo/${id}`} onClick={handleClick}>
+      <Link to={`/beerinfo/${id}`} onClick={handleClickReadMoreButton}>
         <button className={styles.beerCardBtn}>Read more</button>
       </Link>
     </li>

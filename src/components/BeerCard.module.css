@@ -9,7 +9,6 @@
   box-sizing: border-box;
   padding: 0.5rem;
   transition: 500ms ease-in-out;
-  position: relative;
 }
 .beerCard:hover {
   transform: scale(1.05);
@@ -51,11 +50,10 @@
   margin-bottom: 0.3rem;
   font-size: 14px;
 }
-.beerCardTrashCanIcon {
-  position: absolute;
-  right: 0.5rem;
-  top: 0.5rem;
+.selected {
+  background-color: #d4e8df;
 }
+
 .beerCardBtn {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
