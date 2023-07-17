@@ -5,4 +5,9 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   base: "/beer-app/",
+  resolve: {
+    alias: {
+      'react-router-dom': require.resolve('react-router-dom'),
+    },
+  },
 });
