@@ -40,7 +40,7 @@ const Home: React.FC<HomeProps> = ({ fetchData }) => {
       );
       setBeers(updatedBeers);
       setSelectedCardIds([]);
-      if (beers.length === BEERS_PER_PAGE) {
+      if (updatedBeers.length === 0) {
         setPage((prevPage) => prevPage + 1);
       } else {
         await refetchBeersData();
